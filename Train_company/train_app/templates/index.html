@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'img/logo_train.png' %}" alt="Logoazdqqsdf" width="600" height="600">
+        </div>
+        <div class="nav-links">
+            <a href="#">Accueil</a>
+            <a href="{% url 'random_train' %}">Aléatoire</a>
+            <!-- on renvoie vers la view random qui va soccuper de tirer un train au hasard -->
+        </div>
+        
+    </nav>
+
+    <h1>TRAIN_APP</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Ville</th>
+                <th>Horaires</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>RER B</td>
+                <td>premier RER à : 9h</td>
+                <td><a href="{% url 'show' train_id=1 %}">Voir</a></td> 
+                <!-- on renvoie vers la views show en choisissant de quelle train il s'agit grâce à l'id -->
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>RER D</td>
+                <td>Premier train à : 8h</td>
+                <td><a href="{% url 'show' train_id=2 %}">Voir</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>RER C</td>
+                <td>Premier train à : 7h</td>
+                <td><a href="{% url 'show' train_id=3 %}">Voir</a></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Ligne H</td>
+                <td>Premier train à : 10h</td>
+                <td><a href="{% url 'show' train_id=4 %}">Voir</a></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>RER E</td>
+                <td>Premier train à : 5h</td>
+                <td><a href="{% url 'show' train_id=5 %}">Voir</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

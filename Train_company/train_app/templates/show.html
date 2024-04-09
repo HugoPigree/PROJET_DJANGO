@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'img/logo_train.png' %}" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'index' %}">Accueil</a>
+            <!-- je préfère appelé mes urls de cette maniere plutot qu'avec train_app/index/ je trouve ca plus beau et plus simple imo -->
+            <a href="{% url 'random_train' %}">Aléatoire</a>
+        </div>
+        
+    </nav>
+    <div class="info">
+        <h1>TRAIN #{{ train.id }}</h1>
+        <p>{{ train.destination }} - Horaire de départ : {{ train.datetime }}</p>
+        {% if train.id == 1 %} 
+        <!-- boucle pour décider de quelle image afficher à chaque fois. -->
+            <img src="{% static 'img/rer_b.png' %}" alt="azea">
+        {% elif train.id == 2 %}
+            <img src="{% static 'img/rerd.png' %}" alt="aezae">
+        {% elif train.id == 3 %}
+            <img src="{% static 'img/rerc.jpg' %}" alt="aeazeaze">
+        {% elif train.id == 4 %}
+            <img src="{% static 'img/ligneh.jpg' %}" alt="azeazeaz">
+        {% elif train.id == 5 %}
+            <img src="{% static 'img/rere.jpg' %}" alt="azeazea">
+        {% endif %}
+       
+    </div>
+    <br>
+    <footer>
+        <a href="{% url 'index' %}">Retourner à l'Accueil</a>
+    </footer>
+    
+    
+
+</body>
+</html>
